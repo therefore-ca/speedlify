@@ -6,8 +6,8 @@ clone:
   depth: full
 
 definitions:
-  docker:
-    memory: 3072
+#  docker:
+#    memory: 3072
   caches:
     sitenode: node_modules
     results: _data/results
