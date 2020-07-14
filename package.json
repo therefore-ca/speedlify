@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf _data/results/* && rm -rf .log && rm -rf _site",
-    "test-pages": "node run-tests",
+    "test-pages": "export NODE_ENV=production && node run-tests",
     "build": "npx @11ty/eleventy --quiet",
     "start": "npx @11ty/eleventy --quiet --serve",
     "zip-results": "node zip-results.js",
