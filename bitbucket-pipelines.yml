@@ -27,5 +27,6 @@ pipelines:
           services:
             - docker
           script:
+            - npm i
             - npm run test-pages
             - npm run build
