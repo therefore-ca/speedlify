@@ -1,0 +1,31 @@
+image:
+  name: arsenyunusov/nodejs-php-terminus:php7.2-node10
+  run-as-user: 0
+
+clone:
+  depth: full
+
+definitions:
+  docker:
+    memory: 3072
+  caches:
+    sitenode: node_modules
+    results: _data/results
+    lastresults: _data/results/results-last-runs.json
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Deploy Master
+#          size: 2x
+          caches:
+            - docker
+            - sitenode
+            - results
+            - lastresults
+          services:
+            - docker
+          script:
+            - npm run test-pages
+            - npm run build
