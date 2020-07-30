@@ -7,12 +7,24 @@ pagination:
   alias: vertical
 permalink: "/{{ (sites[vertical].name or vertical) | slug }}/"
 ---
+<header class="header" style="background-color: {{ sites[vertical].bgColor }}; color: {{ sites[vertical].textColor }};">
+    <!-- <h1 class="speedlify-hed">{{ sites[vertical].description }}</h1> -->
+    <img src='/img/{{ sites[vertical].logo }}' style='height: 2.625rem'/>
+    <p class="speedlify-subhed">
+        Performance & Accessibility Benchmarks: <b>{{ sites[vertical].name }}</b>
+        <!--
+        			{%- if maxResults %} Updates <em>at most</em> once every {{ sites[vertical].options.frequency or 60 }} minutes. Only the last {{ maxResults }} result{% if maxResults != 1 %}s{% endif %} (and the oldest result) are shown.{% endif %}
+                    			Created by <a href="https://www.zachleat.com/">@zachleat</a>.
+        			-->
+    </p>
+</header>
+
 <div class="leaderboard-wrapper">
 	<table class="leaderboard">
 		<thead>
 			<tr>
-				<th>Rank</th>
-				<th class="leaderboard-hide-md">Trophy</th>
+<!--				<th>Rank</th>-->
+<!--				<th class="leaderboard-hide-md">Trophy</th>-->
 				<th>URL</th>
 				<th colspan="2" class="leaderboard-hide-sm">Lighthouse</th>
 				<th class="leaderboard-data-right"><span data-sr-only>Data and Graphs</span></th>
@@ -24,8 +36,8 @@ permalink: "/{{ (sites[vertical].name or vertical) | slug }}/"
 			{%- set key = site | getObjectKey %}
 			{%- set hundos = site[newestKey] | hundoCount %}
 			<tr class="leaderboard-list-entry">
-				<td class="leaderboard-number">#{{ loop.index }}</td>
-				<td class="leaderboard-hide-md">{% if loop.index0 === 0 %}🏆{% elseif loop.index0 === 1 %}🥈{% elseif loop.index0 === 2 %}🥉{% endif %}</td>
+<!--				<td class="leaderboard-number">#{{ loop.index }}</td>-->
+<!--				<td class="leaderboard-hide-md">{% if loop.index0 === 0 %}🏆{% elseif loop.index0 === 1 %}🥈{% elseif loop.index0 === 2 %}🥉{% endif %}</td>-->
 				<td><a href="{{ site[newestKey].url }}"><code class="url">{{ site[newestKey].url | displayUrl }}</code></a></td>
 				<td class="leaderboard-number leaderboard-hide-sm">{{ site[newestKey] | lighthouseTotal }}</td>
 				<td class="hundo-emojis{% if hundos === 4 %} hundo-emojis-400{% endif %} leaderboard-hide-sm"><span class="leaderboard-hide-md">{{ "💯" | repeat(hundos) }}</span></td>
@@ -42,7 +54,7 @@ permalink: "/{{ (sites[vertical].name or vertical) | slug }}/"
 									<thead>
 										<tr>
 											<th rowspan="2" class="results-date">Date</th>
-											<th rowspan="2" colspan="2">Rank</th>
+<!--											<th rowspan="2" colspan="2">Rank</th>-->
 											<th colspan="9">Lighthouse</th>
 											<th colspan="2" rowspan="2">Axe</th>
 										</tr>
@@ -57,8 +69,8 @@ permalink: "/{{ (sites[vertical].name or vertical) | slug }}/"
 									{%- for entry in site | sort | headAndLast(maxResults) %}
 										<tr>
 											<td><code class="date">{{ entry.timestamp | displayDate | safe }}</code></td>
-											<td class="results-bool">{% if entry.ranks.hundos %}{% if entry.ranks.hundos === 1 %}🏆{% endif %}{% endif %}</td>
-											<td>{% if entry.ranks.hundos %}#{{ entry.ranks.hundos }}{% endif %}</td>
+<!--											<td class="results-bool">{% if entry.ranks.hundos %}{% if entry.ranks.hundos === 1 %}🏆{% endif %}{% endif %}</td>-->
+<!--											<td>{% if entry.ranks.hundos %}#{{ entry.ranks.hundos }}{% endif %}</td>-->
 											<td class="results-bool">{% if entry.lighthouse.performance === 1 %}<span class="leaderboard-hide-sm">✅</span>{% else %}🚫{% endif %}</td>
 											<td data-numeric-value="{{ (entry.lighthouse.performance * 100) | round }}">{{ (entry.lighthouse.performance * 100) | round }}</td>
 											<td class="results-calc"><a href="https://googlechrome.github.io/lighthouse/scorecalc/#FCP={{ entry.firstContentfulPaint }}&SI={{ entry.speedIndex }}&LCP={{ entry.largestContentfulPaint }}&TTI={{ entry.timeToInteractive }}&TBT={{ entry.totalBlockingTime }}&CLS={{ entry.cumulativeLayoutShift }}&FCI=&FMP=&device={{ entry.lighthouse.type or "mobile" }}&version={{ entry.lighthouse.version or "6.0.0" }}" target="_blank" rel="noopener noreferrer" class="leaderboard-hide-md">Calculator</a></td>

@@ -1,6 +1,9 @@
 module.exports = {
-    name: "Rocky Mountaineer", // optional, falls back to object key
-    description: "RM Performance Audits",
+    name: "rockymountaineer.com", // optional, falls back to object key
+    description: "Production Site",
+    logo: 'logo.png',
+    bgColor: '#0e2e50',
+    textColor: '#ffffff',
     options: {
         frequency: 60 * 23, // 24 hours
         // if the sites don’t share assets on the same domain, we can reset

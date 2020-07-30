@@ -6,7 +6,17 @@ body {
 	font-family: system-ui, sans-serif;
 	background-color: #2e2e2e;
 	color: #fff;
-	margin: 0.5rem; /* 8px /16 */
+	/*margin: 0.5rem; !* 8px /16 *!*/
+	margin: 0;
+}
+header.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+header.header > * {
+	flex: 0 0 auto;
 }
 footer {
 	font-style: italic;
@@ -85,7 +95,7 @@ abbr {
 }
 .speedlify-subhed {
 	padding: 0 2em;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	max-width: 40em;
 	text-align: center;
 }
@@ -99,8 +109,8 @@ abbr {
 }
 .leaderboard {
 	width: 100%;
-	margin: 5em auto;
-	max-width: 100rem; /* 1600px /16 */
+	margin: 2em 0 2em 2vw;
+	max-width: 96vw; /* 1600px /16 */
 }
 .leaderboard-number {
 	font-weight: 600;

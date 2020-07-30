@@ -61,7 +61,7 @@ function initializeAllTables(scope) {
 initializeAllTables(document);
 
 let details = document.querySelectorAll("details");
-let first = true;
+let first = false;
 for(let detail of details) {
   // open the first details by default
   if(first) {

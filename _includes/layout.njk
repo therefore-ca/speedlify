@@ -12,16 +12,13 @@
 		</script>
 	</head>
 	<body>
-		<h1 class="speedlify-hed"><a href="/">speedlify</a>{% if vertical %}:{{ vertical }}{% endif %}</h1>
-		<p class="speedlify-subhed">
-			Benchmark {{ sites[vertical].description or "web pages" }} over time.
-			{%- if maxResults %} Updates <em>at most</em> once every {{ sites[vertical].options.frequency or 60 }} minutes. Only the last {{ maxResults }} result{% if maxResults != 1 %}s{% endif %} (and the oldest result) are shown.{% endif %}
-			Created by <a href="https://www.zachleat.com/">@zachleat</a>. </p>
+	<style>
+	html { background: #2e2e2e !important; }
+	</style>
 
 		{{ content | safe }}
 
 		<footer>
-			MIT licensed. Read <a href="https://www.zachleat.com/web/speedlify/">the blog post</a>. Source code on <a href="https://github.com/zachleat/speedlify/">GitHub</a>. Created by <a href="https://www.zachleat.com/">@zachleat</a>.
 		</footer>
 
 		<script src="/chartist.js"></script>

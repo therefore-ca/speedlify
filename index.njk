@@ -2,7 +2,7 @@
 layout: layout.njk
 ---
 <table class="leaderboard leaderboard-list">
-	<caption>Choose a category</caption>
+	<caption>Choose a Website Audit</caption>
 	<thead data-sr-only>
 		<tr>
 			<th>Category</th>
@@ -10,10 +10,10 @@ layout: layout.njk
 		</tr>
 	</thead>
 	<tbody>
-	{%- for key, category in sites %} 
+	{%- for key, category in sites %}
 		<tr>
 			<td><a href="/{{ (category.name or key) | lower | slug }}/">{{ category.name or key }}</a></td>
-			<td><span class="count">×{{ category.urls.length }}<span class="leaderboard-hide-sm"> site{% if category.urls.length != 1 %}s{% endif %}</span></span></td>
+			<td><span class="count">×{{ category.urls.length }}<span class="leaderboard-hide-sm"> page{% if category.urls.length != 1 %}s{% endif %}</span></span></td>
 			<td>{{ category.description }}</td>
 			<td class="leaderboard-hide-sm"><span class="small">{{ lastruns[key].timestamp | displayDate | safe }}</span></td>
 		</tr>

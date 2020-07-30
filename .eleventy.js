@@ -192,4 +192,5 @@ module.exports = function(eleventyConfig) {
 	});
 	eleventyConfig.addPassthroughCopy("chart.js");
 	eleventyConfig.addTemplateFormats("css");
+	eleventyConfig.addPassthroughCopy("img");
 };
